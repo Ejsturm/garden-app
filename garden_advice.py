@@ -5,13 +5,18 @@ plant_type = input("Specify plant type (flower, vegetable): ").strip().lower()
 # Variable to hold gardening advice
 advice = ""
 
-# Determine advice based on the season
-if season == "summer":
-    advice += "Water your plants regularly and provide some shade.\n"
-elif season == "winter":
-    advice += "Protect your plants from frost with covers.\n"
+# Determine advice based on the season.
+# Season dictionary with season name keys and advice values.
+season_name = {
+    "spring": "No advice for this season.\n",
+    "summer": "Water your plants regularly and provide some shade.\n",
+    "fall": "No advice for this season.\n",
+    "winter": "Protect your plants from frost with covers.\n"
+}
+if season not in season_name:
+    advice = "No advice for this season.\n"
 else:
-    advice += "No advice for this season.\n"
+    advice = season_name[season]
 
 # Determine advice based on the plant type
 if plant_type == "flower":
